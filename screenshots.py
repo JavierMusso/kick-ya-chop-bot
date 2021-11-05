@@ -3,7 +3,7 @@ import numpy as np
 from PIL import ImageGrab
 import win32gui
 
-
+# this file was recycled, that's why it looks more complex than what it should be.
 
 class Screenshots:
 
@@ -27,7 +27,7 @@ class Screenshots:
         self.left = (self.window_topleft[0] + 280, self.window_topleft[1] + 540, self.window_topleft[0] + 281, self.window_topleft[1] + 542)
         self.window = (self.window_topleft[0], self.window_topleft[1], self.window_topleft[0] + 703, self.window_topleft[1] + 937)
 
-    # helper function, takes screenshots at the positions inputed
+    # helper function, takes screenshots at the specified position
     def take_screenshot(self, pos): 
         screenshot = ImageGrab.grab(pos)
         screenshot = np.array(screenshot)
@@ -38,8 +38,8 @@ class Screenshots:
     # Specifies the screenshot area
     def get_screenshot(self, argument = 'window'):
         # window = window screen.
-        # right = only the cards area. used to check if and what cards are there.
-        # left = checks enemy hp, in order first to last.
+        # right = checks for branches on the right.
+        # left = checks for branches on the left.
         if (argument == 'right'):
             return self.take_screenshot(self.right)
         elif (argument == 'left'):
